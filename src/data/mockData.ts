@@ -8,6 +8,10 @@ export interface ServiceStatus {
   status: StatusType;
   description: string;
   category: string;
+  sla?: {
+    availability: string;
+    responseTime: string;
+  };
 }
 
 export interface Incident {
@@ -42,70 +46,110 @@ export const mockStatusData: StatusPageData = {
       name: 'Datadog',
       status: 'operational',
       description: 'Monitoring and analytics platform',
-      category: 'Monitoring'
+      category: 'Monitoring',
+      sla: {
+        availability: '99.9%',
+        responseTime: '<500ms'
+      }
     },
     {
       id: 'gcp-compute',
       name: 'GCP Compute',
       status: 'operational',
       description: 'Google Cloud Platform Compute Engine',
-      category: 'Cloud Providers'
+      category: 'Cloud Providers',
+      sla: {
+        availability: '99.95%',
+        responseTime: '<200ms'
+      }
     },
     {
       id: 'gcp-storage',
       name: 'GCP Storage',
       status: 'degraded',
       description: 'Google Cloud Platform Storage',
-      category: 'Cloud Providers'
+      category: 'Cloud Providers',
+      sla: {
+        availability: '99.9%',
+        responseTime: '<300ms'
+      }
     },
     {
       id: 'azure-vm',
       name: 'Azure Virtual Machines',
       status: 'operational',
       description: 'Microsoft Azure Virtual Machines',
-      category: 'Cloud Providers'
+      category: 'Cloud Providers',
+      sla: {
+        availability: '99.99%',
+        responseTime: '<250ms'
+      }
     },
     {
       id: 'azure-blob',
       name: 'Azure Blob Storage',
       status: 'operational',
       description: 'Microsoft Azure Blob Storage',
-      category: 'Cloud Providers'
+      category: 'Cloud Providers',
+      sla: {
+        availability: '99.9%',
+        responseTime: '<400ms'
+      }
     },
     {
       id: 'bitbucket',
       name: 'Bitbucket',
       status: 'outage',
       description: 'Bitbucket Git repositories',
-      category: 'Source Control'
+      category: 'Source Control',
+      sla: {
+        availability: '99.5%',
+        responseTime: '<800ms'
+      }
     },
     {
       id: 'jenkins',
       name: 'Jenkins',
       status: 'operational',
       description: 'Internal Jenkins CI system',
-      category: 'CI/CD'
+      category: 'CI/CD',
+      sla: {
+        availability: '99.0%',
+        responseTime: '<1000ms'
+      }
     },
     {
       id: 'argocd',
       name: 'ArgoCD',
       status: 'operational', 
       description: 'Internal Kubernetes deployment tool',
-      category: 'CI/CD'
+      category: 'CI/CD',
+      sla: {
+        availability: '99.5%',
+        responseTime: '<600ms'
+      }
     },
     {
       id: 'kubernetes',
       name: 'Kubernetes Platform',
       status: 'operational',
       description: 'Internal Kubernetes platform',
-      category: 'Platform'
+      category: 'Platform',
+      sla: {
+        availability: '99.95%',
+        responseTime: '<300ms'
+      }
     },
     {
       id: 'prometheus',
       name: 'Prometheus',
       status: 'maintenance',
       description: 'Internal monitoring system',
-      category: 'Monitoring'
+      category: 'Monitoring',
+      sla: {
+        availability: '99.5%',
+        responseTime: '<700ms'
+      }
     }
   ],
   incidents: [
